@@ -1,7 +1,9 @@
 package com.example.springbootAWS.web;
 
 import com.example.springbootAWS.service.posts.PostsService;
+import com.example.springbootAWS.web.dto.PostsResponseDto;
 import com.example.springbootAWS.web.dto.PostsSaveRequestDto;
+import com.example.springbootAWS.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +26,11 @@ public class PostsApiController {
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
+    }
+    
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById(@PathVariable Long id) {
+        return postsService.findById(id);
     }
 }
 
