@@ -1,5 +1,6 @@
 package com.example.springbootAWS.domain.posts;
 
+import com.example.springbootAWS.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity // Entity에서는 절대 Setter를 만들지 않는다, 대신 명확한 Function사용
-public class Posts {
+public class Posts extends BaseTimeEntity {
     
     @Id // PK 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
