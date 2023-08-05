@@ -35,6 +35,7 @@ public class PostsApiControllerTest {
     private int port;
     
     @Autowired
+    //Rest방식으로 개발된 API 테스트템플릿
     private TestRestTemplate restTemplate;
     
     @Autowired
@@ -60,6 +61,8 @@ public class PostsApiControllerTest {
         String url = "http://localhost:" + port + "/api/v1/posts";
         
         // when
+        //ResponseEntity : Httprequest 요청 응답하는 데이터를 가짐 (헤더, 바디포함)
+        //postForEntity : Post형태의 Http 요청의 응답 반환
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
         
         // then
@@ -94,6 +97,7 @@ public class PostsApiControllerTest {
         HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
         
         //when
+        //exchange : 보통 업데이트 할때 사용하는 함수
         ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
         
         //then
