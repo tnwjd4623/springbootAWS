@@ -24,7 +24,7 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
         return isLoginUserAnnotation && isUserClass;
     }
 
-    @Override // 파라미터에 전달할 객체
+    @Override // 파라미터에 전달할 객체, LoginUser 어노테이션을 사용하면 해당 객체에 user 정보를 넘겨준다.
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest,
                                   WebDataBinderFactory binderFactory) throws Exception {
         return httpSession.getAttribute("user");

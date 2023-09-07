@@ -1,13 +1,14 @@
 package com.example.springbootAWS.config.auth;
 
 import com.example.springbootAWS.domain.user.Role;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 @EnableWebSecurity  // spring security 설정 활성화
 public class SecurityConfig {
     private final CustomOAuth2UserService customOAuth2UserService;
